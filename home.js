@@ -1,4 +1,4 @@
-(function($){
+ï»¿(function($){
 	function crateCommentInfo(obj){
 		if(typeof(obj.time) == "undefined" || obj.time == ""){
 			obj.time = getNowDateFormat();
@@ -18,7 +18,7 @@
 		return el;
 	}
 	
-	//·µ»ØÃ¿¸ö»Ø¸´ÌåÄÚÈİ
+	//è¿”å›æ¯ä¸ªå›å¤ä½“å†…å®¹
 	function createReplyComment(reply){
 		var replyEl = "<div class='comments'><div class='comment'><a class='avatar'><img src='"+reply.img+"'></a><div class='content'><a class='author'>"+reply.replyName+"</a><div class='metadata'><span class='date'>"+reply.time+"</span></div><div class='text'>"+reply.content+"</div></div></div></div>";
 		return replyEl;
@@ -41,13 +41,13 @@
 		}
 	}
 	function replyClick(el){
-		el.parent().parent().append("<div class='replybox'><textarea cols='80' rows='50' placeholder='À´Ëµ¼¸¾ä°É......' class='mytextarea' ></textarea><span class='send'>·¢ËÍ</span></div>")
+		el.parent().parent().append("<div class='replybox'><textarea cols='80' rows='50' placeholder='æ¥è¯´å‡ å¥å§......' class='mytextarea' ></textarea><span class='send'>å‘é€</span></div>")
 		.find(".send").click(function(){
 			var content = $(this).prev().val();
 			if(content != ""){
 				var parentEl = $(this).parent().parent().parent().parent();
 				var obj = new Object();
-				obj.replyName="ÄäÃû";
+				obj.replyName="åŒ¿å";
 				if(el.parent().parent().hasClass("reply")){
 					console.log("1111");
 					obj.beReplyName = el.parent().parent().find("a:first").text();
@@ -59,9 +59,9 @@
 				obj.time = getNowDateFormat();
 				var replyString = createReplyComment(obj);
 				$(".replybox").remove();
-				parentEl.find(".reply-list").append(replyString).find(".reply-list-btn:last").click(function(){alert("²»ÄÜ»Ø¸´×Ô¼º");});
+				parentEl.find(".reply-list").append(replyString).find(".reply-list-btn:last").click(function(){alert("ä¸èƒ½å›å¤è‡ªå·±");});
 			}else{
-				alert("¿ÕÄÚÈİ");
+				alert("ç©ºå†…å®¹");
 			}
 		});
 	}
@@ -73,7 +73,7 @@
 			add:""
 		}
 		var option = $.extend(defaults, options);
-		//¼ÓÔØÊı¾İ
+		//åŠ è½½æ•°æ®
 		if(option.data.length > 0){
 			var dataList = option.data;
 			var totalString = "";
@@ -100,7 +100,7 @@
 			})
 		}
 		
-		//Ìí¼ÓĞÂÊı¾İ
+		//æ·»åŠ æ–°æ•°æ®
 		if(option.add != ""){
 			obj = option.add;
 			var str = crateCommentInfo(obj);
